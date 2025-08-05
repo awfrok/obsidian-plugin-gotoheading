@@ -111,28 +111,31 @@ export class HeadingModal extends FuzzySuggestModal<Suggestion> {
 		const isSearching = this.inputEl.value.length > 0;
 		const level = s.level;
 		const iconName = level >= 1 && level <= 6 ? `heading-${level}` : "heading";
-
-		if(isSearching) {
+		
+//		if(isSearching) {
 			// Set a heading icon
 			setIcon(el, iconName);
-		} else {
+//		} else {
 			// Use a spacer to represent the heading level
-			el.createDiv({
-				text: "#".repeat(level),
-				cls: "join-gotoheading-headingmodal-suggestion-spacer"
-			});
-		}
+//			el.createDiv({
+//				text: "#".repeat(level),
+//				cls: "join-gotoheading-headingmodal-suggestion-spacer"
+//			});
+//		}
 
 		// Display title as rendered by FuzzySuggestModal
 		const titleEl = el.createSpan({ cls: "title"});
 		super.renderSuggestion(item, titleEl);
 
+		// Apply styles based on heading level
+		titleEl.addClass(`gotoheading-heading-level-${level}`);
+
 		// If a search is ongoing, display parent heading information
 		if(isSearching) {
 			el.createEl("small", { text: this.parentHeadingString(s), cls: "path" });
-		} else {
-			let smallEl = el.createEl("small", { cls: "icon" });
-			setIcon(smallEl, iconName);
+//		} else {
+//			let smallEl = el.createEl("small", { cls: "icon" });
+//			setIcon(smallEl, iconName);
 		}
 	}
 
