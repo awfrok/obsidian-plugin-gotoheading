@@ -117,12 +117,17 @@ export class HeadingModal extends FuzzySuggestModal<Suggestion> {
 			//setIcon(el, iconName);
 //		} else {
 			// Use a spacer to represent the heading level
-		el.createDiv({
+//		el.createDiv({
 //				text: "#".repeat(level),
-				text: "\u2003".repeat(level-1),
+//				text: "\u2003".repeat(level-1),
 //				cls: "join-gotoheading-headingmodal-suggestion-spacer"
-			});
+//			});
 //		}
+
+		// create indentation before headings relatively
+		el.createSpan({
+			cls: `gotoheading-heading-indentation gotoheading-heading-indentation-level-${level}`
+		});
 		
 		// Display title as rendered by FuzzySuggestModal
 		const titleEl = el.createSpan({ cls: "title"});
