@@ -114,15 +114,16 @@ export class HeadingModal extends FuzzySuggestModal<Suggestion> {
 		
 //		if(isSearching) {
 			// Set a heading icon
-			setIcon(el, iconName);
+			//setIcon(el, iconName);
 //		} else {
 			// Use a spacer to represent the heading level
-//			el.createDiv({
+		el.createDiv({
 //				text: "#".repeat(level),
+				text: "\u2003".repeat(level-1),
 //				cls: "join-gotoheading-headingmodal-suggestion-spacer"
-//			});
+			});
 //		}
-
+		
 		// Display title as rendered by FuzzySuggestModal
 		const titleEl = el.createSpan({ cls: "title"});
 		super.renderSuggestion(item, titleEl);
